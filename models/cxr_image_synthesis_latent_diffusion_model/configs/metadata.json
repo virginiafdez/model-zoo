@@ -25,7 +25,8 @@
                 "format": "magnitude",
                 "modality": "CXR",
                 "num_channels": 3,
-                "spatial_shape": [77,
+                "spatial_shape": [
+                    77,
                     64,
                     64
                 ],
