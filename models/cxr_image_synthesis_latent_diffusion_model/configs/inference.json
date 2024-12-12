@@ -45,7 +45,8 @@
         "with_decoder_nonlocal_attn": false
     },
     "load_autoencoder_path": "$@model_dir + '/autoencoder.pth'",
-    "load_autoencoder": "$@autoencoder_def.load_old_state_dict(torch.load(@load_autoencoder_path)) if bool(@load_old) else @autoencoder_def.load_state_dict(torch.load(@load_autoencoder_path))",
+    "load_autoencoder_func": "$@autoencoder_def.load_old_state_dict if bool(@load_old) else @autoencoder_def.load_state_dict",
+    "load_autoencoder": "$@load_autoencoder_func(torch.load(@load_autoencoder_path))",
     "autoencoder": "$@autoencoder_def.to(@device)",
     "diffusion_def": {
         "_target_": "monai.networks.nets.DiffusionModelUNet",
@@ -76,7 +77,8 @@
         "cross_attention_dim": 1024
     },
     "load_diffusion_path": "$@model_dir + '/diffusion_model.pth'",
-    "load_diffusion": "$@diffusion_def.load_old_state_dict(torch.load(@load_diffusion_path)) if bool(@load_old) else @diffusion_def.load_state_dict(torch.load(@load_diffusion_path))",
+    "load_diffusion_func": "$@diffusion_def.load_old_state_dict if bool(@load_old) else @diffusion_def.load_state_dict",
+    "load_diffusion": "$@load_diffusion_func(torch.load(@load_diffusion_path))",
     "diffusion": "$@diffusion_def.to(@device)",
     "scheduler": {
         "_target_": "monai.networks.schedulers.DDIMScheduler",
@@ -103,6 +105,6 @@
         "_requires_": "@create_output_dir",
         "output_dir": "@output_dir"
     },
-    "save_jpg": "$@saver.save(@sample, @out_file)",
+    "run": "$@saver.save(@sample, @out_file)",
     "save": "$torch.save(@sample, @output_dir + '/' + @out_file + '.pt')"
 }

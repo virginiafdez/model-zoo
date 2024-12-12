@@ -9,7 +9,6 @@
     "numpy_version": "1.22.4",
     "optional_packages_version": {
         "nibabel": "4.0.1",
-        "generative": "0.1.0",
         "transformers": "4.26.1"
     },
     "task": "Chest X-ray image synthesis",
@@ -26,7 +25,7 @@
                 "format": "magnitude",
                 "modality": "CXR",
                 "num_channels": 3,
-                "spatial_shape": [
+                "spatial_shape": [77,
                     64,
                     64
                 ],

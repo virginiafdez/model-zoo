@@ -36,19 +36,19 @@ the image sticks to a given text input (the common range is between 1-21).
 Examples:
 
 ```shell
-$ python -m monai.bundle run save_jpg --config_file configs/inference.json --prompt "Big right-sided pleural effusion" --guidance_scale 7.0
+$ python -m monai.bundle run --config_file configs/inference.json --prompt "Big right-sided pleural effusion" --guidance_scale 7.0
 ```
 
 ```shell
-$ python -m monai.bundle run save_jpg --config_file configs/inference.json --prompt "Small right-sided pleural effusion" --guidance_scale 7.0
+$ python -m monai.bundle run --config_file configs/inference.json --prompt "Small right-sided pleural effusion" --guidance_scale 7.0
 ```
 
 ```shell
-$ python -m monai.bundle run save_jpg --config_file configs/inference.json --prompt "Bilateral pleural effusion" --guidance_scale 7.0
+$ python -m monai.bundle run --config_file configs/inference.json --prompt "Bilateral pleural effusion" --guidance_scale 7.0
 ```
 
 ```shell
-$ python -m monai.bundle run save_jpg --config_file configs/inference.json --prompt "Cardiomegaly" --guidance_scale 7.0
+$ python -m monai.bundle run --config_file configs/inference.json --prompt "Cardiomegaly" --guidance_scale 7.0
 ```
 
 ## Using a new version of the model
@@ -58,7 +58,7 @@ to avoid the function load_old_state_dict being called instead of load_state_dic
 required to load the checkpoint from the original GenerativeModels repository.
 
 ```shell
-$ python -m monai.bundle run save_jpg --config_file configs/inference.json --prompt "Pleural effusion." --guidance_scale 7.0 --load_old 0
+$ python -m monai.bundle run --config_file configs/inference.json --prompt "Pleural effusion." --guidance_scale 7.0 --load_old 0
 ```
 
 ## References
