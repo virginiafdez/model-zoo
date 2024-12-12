@@ -1,6 +1,6 @@
 # Description
 
-A diffusion model to synthetise X-Ray images based on radiological report impressions. 
+A diffusion model to synthetise X-Ray images based on radiological report impressions.
 
 # Model Overview
 This model is trained from scratch using the Latent Diffusion Model architecture [1] and is used for the synthesis of
@@ -26,7 +26,7 @@ transformers package (https://github.com/huggingface/transformers) (pretrained m
 "stabilityai/stable-diffusion-2-1-base") and then encoded using CLIPTextModel from the same package and pretrained
 model.
 
-# Examples of inference 
+# Examples of inference
 
 Here we included a few examples of commands to sample images from the model and save them as .jpg files. The available
 arguments for this task are: "--prompt" (str) text prompt to condition the model on; "--guidance_scale" (float), the
@@ -54,7 +54,7 @@ $ python -m monai.bundle run --config_file configs/inference.json --prompt "Card
 ## Using a new version of the model
 
 If you want to use the checkpoints from a newly fine-tuned model, you need to set parameter load_old to 0 when you run inference,
-to avoid the function load_old_state_dict being called instead of load_state_dict to be called, currently default, as it is 
+to avoid the function load_old_state_dict being called instead of load_state_dict to be called, currently default, as it is
 required to load the checkpoint from the original GenerativeModels repository.
 
 ```shell
