@@ -2,14 +2,13 @@
     "schema": "https://github.com/Project-MONAI/MONAI-extra-test-data/releases/download/0.8.1/meta_schema_20220324.json",
     "version": "1.0.0",
     "changelog": {
-        "0.2": "Flipped images fixed"
+        "1.0.0": "Initial release"
     },
-    "monai_version": "1.1.0",
-    "pytorch_version": "1.13.0",
-    "numpy_version": "1.22.4",
+    "monai_version": "1.4.0",
+    "pytorch_version": "2.5.1",
+    "numpy_version": "1.26.4",
     "optional_packages_version": {
-        "nibabel": "4.0.1",
-        "transformers": "4.26.1"
+        "transformers": "4.46.3"
     },
     "task": "Chest X-ray image synthesis",
     "description": "A generative model for creating high-resolution chest X-ray based on MIMIC dataset",
