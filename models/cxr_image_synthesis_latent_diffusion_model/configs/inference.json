@@ -7,6 +7,10 @@
         "$from transformers import CLIPTokenizer"
     ],
     "bundle_root": ".",
+    "dataset_dir": "",
+    "dataset": "",
+    "evaluator": "",
+    "inferer": "",
     "load_old": 1,
     "model_dir": "$@bundle_root + '/models'",
     "output_dir": "$@bundle_root + '/output'",
@@ -44,6 +48,7 @@
         "with_encoder_nonlocal_attn": false,
         "with_decoder_nonlocal_attn": false
     },
+    "network_def": "@autoencoder_def",
     "load_autoencoder_path": "$@model_dir + '/autoencoder.pth'",
     "load_autoencoder_func": "$@autoencoder_def.load_old_state_dict if bool(@load_old) else @autoencoder_def.load_state_dict",
     "load_autoencoder": "$@load_autoencoder_func(torch.load(@load_autoencoder_path))",
