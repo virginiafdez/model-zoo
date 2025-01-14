@@ -13,9 +13,10 @@ import os
 import shutil
 import tempfile
 import unittest
-from parameterized import parameterized
+
 import numpy as np
 from monai.bundle import ConfigWorkflow
+from parameterized import parameterized
 from utils import check_workflow
 
 TEST_CASE_1 = [  # inference
@@ -25,6 +26,7 @@ TEST_CASE_1 = [  # inference
         "guidance_scale": 7.0,
     }
 ]
+
 
 class TestCXRLatentDiffusionInference(unittest.TestCase):
     @parameterized.expand([TEST_CASE_1])
@@ -39,6 +41,7 @@ class TestCXRLatentDiffusionInference(unittest.TestCase):
             **params,
         )
         check_workflow(trainer, check_properties=True)
+
 
 if __name__ == "__main__":
     loader = unittest.TestLoader()
