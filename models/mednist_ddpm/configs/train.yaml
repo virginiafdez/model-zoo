@@ -1,5 +1,8 @@
 # This defines the training script for the network
 
+imports:
+- $import operator
+
 # choose a new directory for every run
 output_dir: $datetime.datetime.now().strftime('./results/output_%y%m%d_%H%M%S')
 dataset_dir: ./data
@@ -112,7 +115,7 @@ evaluator:
     val_mean_abs_error:
       _target_: MeanAbsoluteError
       output_transform: $monai.handlers.from_engine([@pred, @label])
-  metric_cmp_fn: '$scripts.inv_metric_cmp_fn'
+  metric_cmp_fn: '$operator.lt'
   val_handlers: '$list(filter(bool, @val_handlers))'
 
 handlers:
@@ -148,7 +151,7 @@ trainer:
     train_acc:
       _target_: MeanSquaredError
       output_transform: $monai.handlers.from_engine([@pred, @label])
-  metric_cmp_fn: '$scripts.inv_metric_cmp_fn'
+  metric_cmp_fn: '$operator.lt'
   train_handlers: '$list(filter(bool, @handlers))'
   amp: '@use_amp'
 
