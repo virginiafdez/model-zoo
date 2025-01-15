@@ -27,7 +27,7 @@
         "in_channels": 1,
         "out_channels": 1,
         "latent_channels": 3,
-        "num_channels": [
+        "channels": [
             64,
             128,
             128,
@@ -52,8 +52,8 @@
     "autoencoder": "$@autoencoder_def.to(@device)",
     "diffusion_def": {
         "_target_": "monai.networks.nets.DiffusionModelUNet",
-        "spatial_dims": 2,
-        "in_channels": 3,
+        "spatial_dims": 3,
+        "in_channels": 7,
         "out_channels": 3,
         "channels": [
             256,
@@ -68,7 +68,7 @@
         ],
         "norm_num_groups": 32,
         "norm_eps": 1e-06,
-        "resblock_updown": false,
+        "resblock_updown": true,
         "num_head_channels": [
             0,
             512,
@@ -76,7 +76,9 @@
         ],
         "with_conditioning": true,
         "transformer_num_layers": 1,
-        "cross_attention_dim": 1024
+        "cross_attention_dim": 4,
+        "upcast_attention": true,
+        "use_flash_attention": false
     },
     "load_diffusion_path": "$@model_dir + '/model.pt'",
     "load_diffusion_func": "$@diffusion_def.load_old_state_dict if bool(@load_old) else @diffusion_def.load_state_dict",
