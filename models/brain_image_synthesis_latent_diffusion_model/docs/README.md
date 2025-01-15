@@ -32,16 +32,28 @@ Please, check Table 1 of the original paper for more details regarding evaluatio
 
 
 ## **commands example**
+
 Execute sampling:
-```
+
+```shell
 export PYTHONPATH=$PYTHONPATH:"<path to 'GenerativeModels'>"
 $ python -m monai.bundle run --config_file configs/inference.json --gender 1.0 --age 0.7 --ventricular_vol 0.7 --brain_vol 0.5
 ```
 All conditioning are expected to have values between 0 and 1
 
+## Using a new version of the model
+
+If you want to use the checkpoints from a newly fine-tuned model, you need to set parameter load_old to 0 when you run inference,
+to avoid the function load_old_state_dict being called instead of load_state_dict to be called, currently default, as it is
+required to load the checkpoint from the original GenerativeModels repository.
+
+```shell
+$ python -m monai.bundle run --config_file configs/inference.json --gender 1.0 --age 0.7 --ventricular_vol 0.7 --brain_vol 0.5 --load_old 0
+```
+
 ## **Citation Info**
 
-```
+```json
 @inproceedings{pinaya2022brain,
   title={Brain imaging generation with latent diffusion models},
   author={Pinaya, Walter HL and Tudosiu, Petru-Daniel and Dafflon, Jessica and Da Costa, Pedro F and Fernandez, Virginia and Nachev, Parashkev and Ourselin, Sebastien and Cardoso, M Jorge},
