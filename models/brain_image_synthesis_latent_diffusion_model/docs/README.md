@@ -35,7 +35,7 @@ Please, check Table 1 of the original paper for more details regarding evaluatio
 Execute sampling:
 ```
 export PYTHONPATH=$PYTHONPATH:"<path to 'GenerativeModels'>"
-$ python -m monai.bundle run save_nii --config_file configs/inference.json --gender 1.0 --age 0.7 --ventricular_vol 0.7 --brain_vol 0.5
+$ python -m monai.bundle run --config_file configs/inference.json --gender 1.0 --age 0.7 --ventricular_vol 0.7 --brain_vol 0.5
 ```
 All conditioning are expected to have values between 0 and 1
 

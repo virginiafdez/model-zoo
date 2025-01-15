@@ -1,10 +1,16 @@
 {
+    "_mode_": "debug",
     "imports": [
         "$import torch",
         "$from datetime import datetime",
         "$from pathlib import Path"
     ],
     "bundle_root": ".",
+    "dataset_dir": "",
+    "dataset": "",
+    "evaluator": "",
+    "inferer": "",
+    "load_old": 1,
     "model_dir": "$@bundle_root + '/models'",
     "output_dir": "$@bundle_root + '/output'",
     "create_output_dir": "$Path(@output_dir).mkdir(exist_ok=True)",
@@ -16,7 +22,7 @@
     "conditioning": "$torch.tensor([[@gender, @age, @ventricular_vol, @brain_vol]]).to(@device).unsqueeze(1)",
     "out_file": "$datetime.now().strftime('sample_%H%M%S_%d%m%Y') + '_' + str(@gender) + '_' + str(@age) + '_' + str(@ventricular_vol) + '_' + str(@brain_vol)",
     "autoencoder_def": {
-        "_target_": "generative.networks.nets.AutoencoderKL",
+        "_target_": "monai.networks.nets.AutoencoderKL",
         "spatial_dims": 3,
         "in_channels": 1,
         "out_channels": 1,
@@ -39,15 +45,17 @@
         "with_encoder_nonlocal_attn": false,
         "with_decoder_nonlocal_attn": false
     },
-    "load_autoencoder_path": "$@model_dir + '/autoencoder.pth'",
-    "load_autoencoder": "$@autoencoder_def.load_state_dict(torch.load(@load_autoencoder_path))",
+    "network_def": "@autoencoder_def",
+    "load_autoencoder_path": "$@model_dir + '/autoencoder.pt'",
+    "load_autoencoder_func": "$@autoencoder_def.load_old_state_dict if bool(@load_old) else @autoencoder_def.load_state_dict",
+    "load_autoencoder": "$@load_autoencoder_func(torch.load(@load_autoencoder_path))",
     "autoencoder": "$@autoencoder_def.to(@device)",
     "diffusion_def": {
-        "_target_": "generative.networks.nets.DiffusionModelUNet",
-        "spatial_dims": 3,
-        "in_channels": 7,
+        "_target_": "monai.networks.nets.DiffusionModelUNet",
+        "spatial_dims": 2,
+        "in_channels": 3,
         "out_channels": 3,
-        "num_channels": [
+        "channels": [
             256,
             512,
             768
@@ -60,7 +68,7 @@
         ],
         "norm_num_groups": 32,
         "norm_eps": 1e-06,
-        "resblock_updown": true,
+        "resblock_updown": false,
         "num_head_channels": [
             0,
             512,
@@ -68,15 +76,14 @@
         ],
         "with_conditioning": true,
         "transformer_num_layers": 1,
-        "cross_attention_dim": 4,
-        "upcast_attention": true,
-        "use_flash_attention": false
+        "cross_attention_dim": 1024
     },
-    "load_diffusion_path": "$@model_dir + '/diffusion_model.pth'",
-    "load_diffusion": "$@diffusion_def.load_state_dict(torch.load(@load_diffusion_path))",
+    "load_diffusion_path": "$@model_dir + '/model.pt'",
+    "load_diffusion_func": "$@diffusion_def.load_old_state_dict if bool(@load_old) else @diffusion_def.load_state_dict",
+    "load_diffusion": "$@load_diffusion_func(torch.load(@load_diffusion_path))",
     "diffusion": "$@diffusion_def.to(@device)",
     "scheduler": {
-        "_target_": "generative.networks.schedulers.DDIMScheduler",
+        "_target_": "monai.networks.schedulers.DDIMScheduler",
         "_requires_": [
             "@load_diffusion",
             "@load_autoencoder"
@@ -99,6 +106,6 @@
         "_requires_": "@create_output_dir",
         "output_dir": "@output_dir"
     },
-    "save_nii": "$@saver.save(@sample, @out_file)",
+    "run": "$@saver.save(@sample, @out_file)",
     "save": "$torch.save(@sample, @output_dir + '/' + @out_file + '.pt')"
 }
