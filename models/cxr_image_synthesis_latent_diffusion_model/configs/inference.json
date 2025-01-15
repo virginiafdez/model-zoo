@@ -49,7 +49,7 @@
         "with_decoder_nonlocal_attn": false
     },
     "network_def": "@autoencoder_def",
-    "load_autoencoder_path": "$@model_dir + '/autoencoder.pth'",
+    "load_autoencoder_path": "$@model_dir + '/autoencoder.pt'",
     "load_autoencoder_func": "$@autoencoder_def.load_old_state_dict if bool(@load_old) else @autoencoder_def.load_state_dict",
     "load_autoencoder": "$@load_autoencoder_func(torch.load(@load_autoencoder_path))",
     "autoencoder": "$@autoencoder_def.to(@device)",
@@ -81,7 +81,7 @@
         "transformer_num_layers": 1,
         "cross_attention_dim": 1024
     },
-    "load_diffusion_path": "$@model_dir + '/diffusion_model.pth'",
+    "load_diffusion_path": "$@model_dir + '/model.pt'",
     "load_diffusion_func": "$@diffusion_def.load_old_state_dict if bool(@load_old) else @diffusion_def.load_state_dict",
     "load_diffusion": "$@load_diffusion_func(torch.load(@load_diffusion_path))",
     "diffusion": "$@diffusion_def.to(@device)",
