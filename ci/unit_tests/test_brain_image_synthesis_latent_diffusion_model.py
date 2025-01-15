@@ -25,7 +25,7 @@ TEST_CASE_1 = [  # inference
         "gender": 1.0,
         "age": 0.7,
         "ventricular_vol": 0.7,
-        "brain_vol": 0.5
+        "brain_vol": 0.5,
     }
 ]
 
