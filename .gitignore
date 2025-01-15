@@ -129,6 +129,5 @@ temp/
 # VSCode
 .vscode/
 *.zip
-models/brain_image_synthesis_latent_diffusion_model/models/*
-models/brain_image_synthesis_latent_diffusion_model/models/*
-models/brain_image_synthesis_latent_diffusion_model/output/*
+models/*/models/*
+models/*/output/*
