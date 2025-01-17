@@ -13,6 +13,7 @@
     "task": "Chest X-ray image synthesis",
     "description": "A generative model for creating high-resolution chest X-ray based on MIMIC dataset",
     "copyright": "Copyright (c) MONAI Consortium",
+    "authors": "Walter Hugo Lopez Pinaya, Mark Graham, Eric Kerfoot, Virginia Fernandez",
     "data_source": "https://physionet.org/content/mimic-cxr-jpg/2.0.0/",
     "data_type": "image",
     "image_classes": "Radiography (X-ray) with 512 x 512 pixels",
