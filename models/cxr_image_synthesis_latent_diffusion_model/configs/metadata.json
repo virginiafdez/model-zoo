@@ -20,6 +20,16 @@
     "intended_use": "This is a research tool/prototype and not to be used clinically",
     "network_data_format": {
         "inputs": {
+            "image": {
+                "type": "N/A",
+                "format": "N/A",
+                "modality": "N/A",
+                "num_channels": 0,
+                "spatial_shape": [],
+                "dtype": "N/A",
+                "value_range": [],
+                "is_patch_data": false
+            },
             "latent_representation": {
                 "type": "image",
                 "format": "magnitude",
