@@ -7,6 +7,7 @@ imports:
 - $import scripts
 - $import monai
 - $import torch.distributed as dist
+- $import operator
 
 image: $monai.utils.CommonKeys.IMAGE
 label: $monai.utils.CommonKeys.LABEL
@@ -28,7 +29,6 @@ network_def:
   num_head_channels: 128
 
 network: $@network_def.to(@device)
-
 bundle_root: .
 ckpt_path: $@bundle_root + '/models/model.pt'
 use_amp: true

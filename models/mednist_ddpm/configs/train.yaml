@@ -1,8 +1,5 @@
 # This defines the training script for the network
 
-imports:
-- $import operator
-
 # choose a new directory for every run
 output_dir: $datetime.datetime.now().strftime('./results/output_%y%m%d_%H%M%S')
 dataset_dir: ./data
