@@ -53,7 +53,7 @@ python -m monai.bundle run --config_file configs/inference.json --gender 1.0 --a
 
 ## **Citation Info**
 
-```json
+```bibtex
 @inproceedings{pinaya2022brain,
   title={Brain imaging generation with latent diffusion models},
   author={Pinaya, Walter HL and Tudosiu, Petru-Daniel and Dafflon, Jessica and Da Costa, Pedro F and Fernandez, Virginia and Nachev, Parashkev and Ourselin, Sebastien and Cardoso, M Jorge},
