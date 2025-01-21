@@ -36,9 +36,9 @@ Please, check Table 1 of the original paper for more details regarding evaluatio
 Execute sampling:
 
 ```shell
-export PYTHONPATH=$PYTHONPATH:"<path to 'GenerativeModels'>"
-$ python -m monai.bundle run --config_file configs/inference.json --gender 1.0 --age 0.7 --ventricular_vol 0.7 --brain_vol 0.5
+python -m monai.bundle run --config_file configs/inference.json --gender 1.0 --age 0.7 --ventricular_vol 0.7 --brain_vol 0.5
 ```
+
 All conditioning are expected to have values between 0 and 1
 
 ## Using a new version of the model
@@ -48,7 +48,7 @@ to avoid the function load_old_state_dict being called instead of load_state_dic
 required to load the checkpoint from the original GenerativeModels repository.
 
 ```shell
-$ python -m monai.bundle run --config_file configs/inference.json --gender 1.0 --age 0.7 --ventricular_vol 0.7 --brain_vol 0.5 --load_old 0
+python -m monai.bundle run --config_file configs/inference.json --gender 1.0 --age 0.7 --ventricular_vol 0.7 --brain_vol 0.5 --load_old 0
 ```
 
 ## **Citation Info**
