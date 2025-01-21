@@ -105,8 +105,8 @@
     "saver": {
         "_target_": "SaveImage",
         "_requires_": "@create_output_dir",
-        "output_dir": "@output_dir"
+        "output_dir": "@output_dir",
+        "output_postfix": "@out_file"
     },
-    "run": "$@saver.save(@sample, @out_file)",
-    "save": "$torch.save(@sample, @output_dir + '/' + @out_file + '.pt')"
+    "run": "$@saver(@sample[0][0])"
 }
