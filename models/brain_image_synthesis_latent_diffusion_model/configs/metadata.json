@@ -36,6 +36,7 @@
                     0,
                     1
                 ],
+                "format": "nii",
                 "is_patch_data": false,
                 "channel_def": {
                     "0": "Gender",
@@ -48,8 +49,7 @@
         "outputs": {
             "pred": {
                 "type": "image",
-                "format": "magnitude",
-                "modality": "MR",
+                "format": "image",
                 "num_channels": 1,
                 "spatial_shape": [
                     160,
@@ -61,6 +61,7 @@
                     0,
                     1
                 ],
+                "modality": "MR",
                 "is_patch_data": false,
                 "channel_def": {
                     "0": "T1w"
