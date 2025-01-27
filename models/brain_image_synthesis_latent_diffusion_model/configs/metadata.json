@@ -37,6 +37,11 @@
                     1
                 ],
                 "format": "nii",
+                "spatial_shape": [
+                    160,
+                    224,
+                    160
+                ],
                 "is_patch_data": false,
                 "channel_def": {
                     "0": "Gender",
