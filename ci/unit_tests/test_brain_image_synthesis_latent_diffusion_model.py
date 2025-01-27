@@ -10,11 +10,8 @@
 # limitations under the License.
 
 import os
-import shutil
-import tempfile
 import unittest
 
-import numpy as np
 from monai.bundle import ConfigWorkflow
 from parameterized import parameterized
 from utils import check_workflow
