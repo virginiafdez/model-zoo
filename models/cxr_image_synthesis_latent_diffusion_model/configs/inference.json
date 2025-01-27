@@ -48,7 +48,7 @@
         "with_encoder_nonlocal_attn": false,
         "with_decoder_nonlocal_attn": false
     },
-    "network_def": "@autoencoder_def",
+    "network_def": "@diffusion_def",
     "load_autoencoder_path": "$@model_dir + '/autoencoder.pt'",
     "load_autoencoder_func": "$@autoencoder_def.load_old_state_dict if bool(@load_old) else @autoencoder_def.load_state_dict",
     "load_autoencoder": "$@load_autoencoder_func(torch.load(@load_autoencoder_path))",
