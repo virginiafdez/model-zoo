@@ -37,10 +37,9 @@
             "timesteps": {
                 "format": "magnitude",
                 "num_channels": 1,
-                "spatial_shape":
-                        [
-                            1
-                        ],
+                "spatial_shape": [
+                    1
+                ],
                 "type": "vector",
                 "value_range": [
                     0,
