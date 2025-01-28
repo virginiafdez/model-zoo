@@ -7,7 +7,7 @@
     "monai_version": "1.4.0",
     "pytorch_version": "2.5.1",
     "numpy_version": "1.26.4",
-    "optional_packages_version": {
+    "required_packages_version": {
         "transformers": "4.46.3"
     },
     "task": "Chest X-ray image synthesis",
@@ -35,6 +35,12 @@
                 "is_patch_data": false
             },
             "timesteps": {
+                "format": "magnitude",
+                "num_channels": 1,
+                "spatial_shape":
+                        [
+                            1
+                        ],
                 "type": "vector",
                 "value_range": [
                     0,
@@ -43,6 +49,11 @@
                 "dtype": "long"
             },
             "context": {
+                "format": "magnitude",
+                "num_channels": 1024,
+                "spatial_shape": [
+                    1
+                ],
                 "type": "vector",
                 "value_range": [],
                 "dtype": "float32"
