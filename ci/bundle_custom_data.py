@@ -42,7 +42,7 @@ exclude_verify_torchscript_list = [
     "vista3d",
     "maisi_ct_generative",
     "vista2d",
-    "mednist_ddpm"
+    "mednist_ddpm",
 ]
 
 # This list is used for our CI tests to determine whether a bundle needs to be tested after downloading
