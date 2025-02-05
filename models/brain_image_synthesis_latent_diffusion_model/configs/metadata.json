@@ -7,7 +7,7 @@
     "monai_version": "1.4.0",
     "pytorch_version": "2.5.1",
     "numpy_version": "1.26.4",
-    "optional_packages_version": {
+    "required_packages_version": {
         "nibabel": "5.3.2"
     },
     "task": "Brain image synthesis",
