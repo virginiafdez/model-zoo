@@ -20,6 +20,7 @@ exclude_verify_shape_list = [
     "brats_mri_generative_diffusion",
     "brats_mri_axial_slices_generative_diffusion",
     "maisi_ct_generative",
+    "cxr_image_synthesis_latent_diffusion_model"
 ]
 
 # This list is used for our CI tests to determine whether a bundle contains the preferred files.
@@ -41,6 +42,7 @@ exclude_verify_torchscript_list = [
     "vista3d",
     "maisi_ct_generative",
     "vista2d",
+    "cxr_image_synthesis_latent_diffusion_model"
 ]
 
 # This list is used for our CI tests to determine whether a bundle needs to be tested after downloading
