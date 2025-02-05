@@ -14,13 +14,12 @@ export BUNDLE="$(pwd)/.."
 # change this to load a checkpoint instead of started from scratch
 CKPT=none
 
-CONFIG="'$BUNDLE/configs/common.yaml', '$BUNDLE/configs/train.yaml'"
+CONFIG="$BUNDLE/configs/train.yaml"
 
 # change this to point to where MedNIST is located
 DATASET="$(pwd)"
 
 # it's useful to include the configuration in the log file
-cat "$BUNDLE/configs/common.yaml"
 cat "$BUNDLE/configs/train.yaml"
 
 python -m monai.bundle run training \
